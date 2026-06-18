@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zapple Studio | Newborn, Baby & Maternity Photography – Chennai</title>
+  <meta name="description" content="Zapple Studio – Professional newborn, baby, toddler and maternity photography studio in Chennai. Branches at Arumbakkam & Keelkatalai. Book your shoot today!" />
+  <meta name="keywords" content="newborn photography Chennai, baby photoshoot Chennai, maternity shoot Chennai, Zapple Studio, Arumbakkam, Keelkatalai" />
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            zapple: {
+              red:    '#D42B2B',
+              dark:   '#a81e1e',
+              light:  '#ff4444',
+              cream:  '#FFF8F4',
+              warm:   '#FAFAF8',
+            },
+            charcoal: {
+              DEFAULT: '#1A1A1A',
+              2: '#242424',
+              3: '#2e2e2e',
+            }
+          },
+          fontFamily: {
+            playfair: ['"Playfair Display"', 'serif'],
+            inter:    ['"Inter"', 'sans-serif'],
+          },
+          animation: {
+            'hero-zoom':     'heroZoom 12s ease-in-out infinite alternate',
+            'scroll-bounce': 'scrollBounce 2s ease-in-out infinite',
+            'pin-bounce':    'pinBounce 2s ease-in-out infinite',
+            'scroll-reviews':'scrollReviews 30s linear infinite',
+            'fade-in-up':    'fadeInUp 0.6s ease forwards',
+          },
+          keyframes: {
+            heroZoom:      { '0%':   {transform:'scale(1.05)'}, '100%': {transform:'scale(1.12)'} },
+            scrollBounce:  { '0%,100%': {transform:'translateX(-50%) translateY(0)'}, '50%': {transform:'translateX(-50%) translateY(6px)'} },
+            pinBounce:     { '0%,100%': {transform:'translateY(0)'}, '50%': {transform:'translateY(-8px)'} },
+            scrollReviews: { '0%': {transform:'translateX(0)'}, '100%': {transform:'translateX(-50%)'} },
+            fadeInUp:      { 'from': {opacity:'0', transform:'translateY(30px)'}, 'to': {opacity:'1', transform:'translateY(0)'} },
+            shake:         { '0%,100%':{transform:'translateX(0)'}, '20%':{transform:'translateX(-6px)'}, '40%':{transform:'translateX(6px)'}, '60%':{transform:'translateX(-6px)'}, '80%':{transform:'translateX(6px)'} },
+          },
+          backgroundImage: {
+            'hero-overlay': 'linear-gradient(135deg, rgba(26,26,26,0.82) 0%, rgba(26,26,26,0.55) 50%, rgba(212,43,43,0.2) 100%)',
+            'enquiry-bg':   'linear-gradient(135deg, #1a0000 0%, #1A1A1A 100%)',
+            'insta-grad':   'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)',
+          },
+          transitionTimingFunction: {
+            'smooth': 'cubic-bezier(.4,0,.2,1)',
+          },
+          boxShadow: {
+            'card-hover': '0 24px 64px rgba(0,0,0,0.18)',
+            'red-glow':   '0 12px 32px rgba(212,43,43,0.35)',
+            'red-glow-lg':'0 16px 40px rgba(212,43,43,0.35)',
+          },
+          maskImage: {
+            'fade-sides': 'linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+
+    /* Navbar backdrop blur on scroll (toggled via JS) */
+    #navbar.scrolled {
+      background: rgba(26,26,26,0.95) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+    }
+
+    /* Hero overlay */
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(26,26,26,0.82) 0%, rgba(26,26,26,0.55) 50%, rgba(212,43,43,0.2) 100%);
+    }
+
+    /* Keyframes */
+    @keyframes heroZoom      { from { transform:scale(1.05); } to { transform:scale(1.12); } }
+    @keyframes scrollBounce  { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+    @keyframes pinBounce     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes scrollReviews { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    @keyframes fadeInUp      { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes shake         { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)} }
+    @keyframes lightboxIn    { from{opacity:0;transform:scale(0.9)} to{opacity:1;transform:scale(1)} }
+
+    .hero-img-anim  { animation: heroZoom 12s ease-in-out infinite alternate; }
+    .scroll-bounce  { animation: scrollBounce 2s ease-in-out infinite; }
+    .pin-bounce     { animation: pinBounce 2s ease-in-out infinite; }
+    .reviews-scroll { animation: scrollReviews 30s linear infinite; }
+    .reviews-scroll:hover { animation-play-state: paused; }
+    .lightbox-img-in { animation: lightboxIn 0.3s ease; }
+
+    /* AOS-like scroll reveal */
+    [data-aos] { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease; }
+    [data-aos].aos-visible { opacity:1; transform:translateY(0); }
+    [data-aos][data-aos-delay="100"] { transition-delay:0.1s; }
+    [data-aos][data-aos-delay="150"] { transition-delay:0.15s; }
+    [data-aos][data-aos-delay="200"] { transition-delay:0.2s; }
+
+    /* Reviews mask */
+    .reviews-mask {
+      -webkit-mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+      mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    }
+
+    /* Gallery masonry */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .gallery-item       { height: 280px; }
+    .gallery-item.tall  { height: 572px; grid-row: span 2; }
+
+    /* Instagram grid */
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 220px);
+      gap: 8px;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #111; }
+    ::-webkit-scrollbar-thumb { background: #D42B2B; border-radius: 3px; }
+
+    /* Shake animation */
+    .shake { animation: shake 0.4s ease; }
+
+    /* Active nav */
+    .nav-link-active { color: #D42B2B !important; }
+
+    /* Hamburger active lines */
+    #hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    #hamburger.active span:nth-child(2) { opacity: 0; }
+    #hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-item.tall { height: 300px; grid-row: span 1; }
+      .gallery-item { height: 200px; }
+      .insta-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(3,180px); }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.tall { height: 260px; grid-row: span 1; }
+      .insta-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .insta-post { height: 240px; }
+    }
+  </style>
+</head>
+<body class="bg-zapple-warm text-charcoal overflow-x-hidden">
+
+  <!-- ============================= NAVBAR ============================= -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3 no-underline">
+        <span class="font-playfair text-3xl font-black text-zapple-red leading-none">7.</span>
+        <div class="flex flex-col leading-tight">
+          <span class="font-playfair text-lg font-bold text-white tracking-wide">Zapple</span>
+          <span class="text-[0.6rem] font-medium text-white/60 tracking-[3px] uppercase">Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden md:flex items-center gap-1 list-none">
+        <li><a href="#services"   class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">Services</a></li>
+        <li><a href="#branches"   class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">Branches</a></li>
+        <li><a href="#gallery"    class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">Gallery</a></li>
+        <li><a href="#reviews"    class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">Reviews</a></li>
+        <li><a href="#instagram"  class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">Instagram</a></li>
+        <li>
+          <a href="#enquiry" id="nav-book-btn"
+             class="ml-2 bg-zapple-red text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-zapple-dark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-red-glow">
+            Book Now
+          </a>
+        </li>
+      </ul>
+
+      <!-- Hamburger -->
+      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 bg-transparent border-none cursor-pointer p-1 z-[1001]" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+         class="hidden fixed inset-0 bg-charcoal/98 flex-col items-center justify-center gap-6 z-[999]">
+      <a href="#services"   class="text-white text-2xl font-medium hover:text-zapple-red transition-colors duration-300">Services</a>
+      <a href="#branches"   class="text-white text-2xl font-medium hover:text-zapple-red transition-colors duration-300">Branches</a>
+      <a href="#gallery"    class="text-white text-2xl font-medium hover:text-zapple-red transition-colors duration-300">Gallery</a>
+      <a href="#reviews"    class="text-white text-2xl font-medium hover:text-zapple-red transition-colors duration-300">Reviews</a>
+      <a href="#instagram"  class="text-white text-2xl font-medium hover:text-zapple-red transition-colors duration-300">Instagram</a>
+      <a href="#enquiry"    class="mt-4 bg-zapple-red text-white font-semibold px-8 py-3 rounded-full text-lg hover:bg-zapple-dark transition-all">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- ============================= HERO ============================= -->
+  <section class="relative h-screen min-h-[700px] flex items-center overflow-hidden" id="home">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img src="assets/hero_newborn.png" alt="Newborn Photography"
+           class="w-full h-full object-cover object-center hero-img-anim" />
+      <div class="absolute inset-0 hero-overlay"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-20 w-full">
+      <!-- Eyebrow -->
+      <p class="flex items-center gap-3 text-zapple-red text-xs font-bold tracking-[3px] uppercase mb-4">
+        <span class="block w-8 h-0.5 bg-zapple-red rounded"></span>
+        Chennai's Most Trusted Studio
+      </p>
+
+      <!-- Title -->
+      <h1 class="font-playfair text-[clamp(2.4rem,5vw,4.2rem)] font-bold text-white leading-[1.2] mb-5">
+        Every Tiny Moment<br />
+        <em class="text-zapple-red not-italic italic">Deserves to Last Forever</em>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-white/80 text-[clamp(0.9rem,2vw,1.1rem)] max-w-lg mb-9 leading-[1.7]">
+        Professional Newborn · Baby · Toddler · Maternity Photography<br />
+        Arumbakkam & Keelkatalai, Chennai
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap gap-4 mb-14">
+        <a href="#enquiry" id="hero-book-btn"
+           class="inline-flex items-center gap-2 bg-zapple-red text-white font-semibold px-7 py-3.5 rounded-full border-2 border-zapple-red hover:bg-zapple-dark hover:border-zapple-dark hover:-translate-y-0.5 hover:shadow-red-glow transition-all duration-300">
+          Book Your Shoot
+        </a>
+        <a href="#services"
+           class="inline-flex items-center gap-2 bg-transparent text-white font-semibold px-7 py-3.5 rounded-full border-2 border-white/60 hover:bg-white/10 hover:border-white hover:-translate-y-0.5 transition-all duration-300">
+          Explore Services
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex flex-wrap items-center gap-6">
+        <div class="flex flex-col gap-0.5">
+          <span class="stat-num font-playfair text-[1.8rem] font-black text-white">2000+</span>
+          <span class="text-[0.7rem] text-white/50 uppercase tracking-[1px]">Happy Families</span>
+        </div>
+        <div class="w-px h-10 bg-white/20"></div>
+        <div class="flex flex-col gap-0.5">
+          <span class="stat-num font-playfair text-[1.8rem] font-black text-white">4.9★</span>
+          <span class="text-[0.7rem] text-white/50 uppercase tracking-[1px]">Google Rating</span>
+        </div>
+        <div class="w-px h-10 bg-white/20"></div>
+        <div class="flex flex-col gap-0.5">
+          <span class="stat-num font-playfair text-[1.8rem] font-black text-white">2</span>
+          <span class="text-[0.7rem] text-white/50 uppercase tracking-[1px]">Studio Branches</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 scroll-bounce flex flex-col items-center gap-2 text-white/40 text-[0.65rem] tracking-[2px] uppercase">
+      <span>Scroll to explore</span>
+      <div class="w-px h-10 bg-gradient-to-b from-white/50 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ============================= SERVICES ============================= -->
+  <section class="py-24 bg-zapple-warm" id="services">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <p class="flex items-center justify-center gap-3 text-zapple-red text-[0.7rem] font-bold tracking-[3px] uppercase mb-3">
+          <span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>What We Offer<span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>
+        </p>
+        <h2 class="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold text-charcoal leading-tight mb-4">
+          Our Signature <em class="text-zapple-red italic">Shoot Packages</em>
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto text-base leading-[1.7]">
+          Choose your session, pick your branch — we'll send you the most magical theme options personally.
+        </p>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+
+        <!-- Newborn -->
+        <div id="service-newborn"
+             class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col">
+          <div class="relative h-52 overflow-hidden">
+            <img src="assets/hero_newborn.png" alt="Newborn Baby Shoot" loading="lazy"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">5–25 Days</span>
+          </div>
+          <div class="p-6 flex flex-col gap-2.5 flex-1">
+            <span class="text-2xl">🍼</span>
+            <h3 class="font-playfair text-xl font-bold text-charcoal">Newborn Baby Shoot</h3>
+            <p class="text-gray-400 text-sm leading-[1.65] flex-1">The golden window — 5 to 25 days old. We capture every curl, yawn and precious wrinkle in ultra-soft dreamy setups.</p>
+            <ul class="flex flex-col gap-1.5 mt-1">
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Posed & lifestyle shots</li>
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Flower, nest & prop setups</li>
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Parent inclusion shots</li>
+            </ul>
+            <a href="#enquiry" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Enquire Now →</a>
+          </div>
+        </div>
+
+        <!-- Baby -->
+        <div id="service-baby"
+             class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col">
+          <div class="relative h-52 overflow-hidden">
+            <img src="assets/baby_shoot.png" alt="Baby Shoot 6-12 months" loading="lazy"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">6–12 Months</span>
+          </div>
+          <div class="p-6 flex flex-col gap-2.5 flex-1">
+            <span class="text-2xl">🎈</span>
+            <h3 class="font-playfair text-xl font-bold text-charcoal">Baby Shoot</h3>
+            <p class="text-gray-400 text-sm leading-[1.65] flex-1">Milestone magic — sitting, crawling, first looks. Perfect age to capture big eyes, chubby cheeks and heart-melting smiles.</p>
+            <ul class="flex flex-col gap-1.5 mt-1">
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Sitter & milestone sessions</li>
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Cake smash available</li>
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Themed setups</li>
+            </ul>
+            <a href="#enquiry" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Enquire Now →</a>
+          </div>
+        </div>
+
+        <!-- Toddler -->
+        <div id="service-toddler"
+             class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col">
+          <div class="relative h-52 overflow-hidden">
+            <img src="assets/toddler_shoot.png" alt="Toddler Shoot 1-2 years" loading="lazy"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">1–2 Years</span>
+          </div>
+          <div class="p-6 flex flex-col gap-2.5 flex-1">
+            <span class="text-2xl">🌟</span>
+            <h3 class="font-playfair text-xl font-bold text-charcoal">Toddler Shoot</h3>
+            <p class="text-gray-400 text-sm leading-[1.65] flex-1">Full of personality! We create playful, energetic sessions that showcase your little one's unique character and spirit.</p>
+            <ul class="flex flex-col gap-1.5 mt-1">
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Activity-based shooting</li>
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Outdoor & studio options</li>
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Birthday specials</li>
+            </ul>
+            <a href="#enquiry" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Enquire Now →</a>
+          </div>
+        </div>
+
+        <!-- Maternity -->
+        <div id="service-maternity"
+             class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col">
+          <div class="relative h-52 overflow-hidden">
+            <img src="assets/maternity_shoot.png" alt="Maternity Shoot" loading="lazy"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">Maternity</span>
+          </div>
+          <div class="p-6 flex flex-col gap-2.5 flex-1">
+            <span class="text-2xl">🌸</span>
+            <h3 class="font-playfair text-xl font-bold text-charcoal">Maternity Shoot</h3>
+            <p class="text-gray-400 text-sm leading-[1.65] flex-1">Celebrate the most beautiful chapter of your life. Elegant, empowering and deeply personal maternity portraits.</p>
+            <ul class="flex flex-col gap-1.5 mt-1">
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Solo & couple sessions</li>
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Gown wardrobe provided</li>
+              <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Golden hour & studio</li>
+            </ul>
+            <a href="#enquiry" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Enquire Now →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= HOW IT WORKS ============================= -->
+  <section class="py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="flex items-center justify-center gap-3 text-white/40 text-[0.7rem] font-bold tracking-[3px] uppercase mb-3">
+          <span class="w-6 h-0.5 bg-white/20 rounded"></span>Simple Process<span class="w-6 h-0.5 bg-white/20 rounded"></span>
+        </p>
+        <h2 class="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold text-white leading-tight">
+          How It <em class="text-white/60 italic">Works</em>
+        </h2>
+      </div>
+
+      <div class="flex flex-wrap items-start justify-center">
+        <!-- Step 1 -->
+        <div class="flex-1 min-w-[160px] max-w-[220px] text-center px-5 py-8 hover:-translate-y-1 transition-transform duration-300">
+          <p class="text-zapple-red text-[0.65rem] font-black tracking-[2px] mb-2">01</p>
+          <div class="text-4xl mb-3">📝</div>
+          <h4 class="text-white font-bold text-base mb-1.5">Fill Enquiry</h4>
+          <p class="text-white/40 text-xs leading-relaxed">Share your details and preferred shoot type</p>
+        </div>
+        <div class="text-white/15 text-2xl self-center mt-[-20px] hidden sm:block">→</div>
+        <!-- Step 2 -->
+        <div class="flex-1 min-w-[160px] max-w-[220px] text-center px-5 py-8 hover:-translate-y-1 transition-transform duration-300">
+          <p class="text-zapple-red text-[0.65rem] font-black tracking-[2px] mb-2">02</p>
+          <div class="text-4xl mb-3">🎨</div>
+          <h4 class="text-white font-bold text-base mb-1.5">Get Themes</h4>
+          <p class="text-white/40 text-xs leading-relaxed">We'll personally share curated theme options for your session</p>
+        </div>
+        <div class="text-white/15 text-2xl self-center mt-[-20px] hidden sm:block">→</div>
+        <!-- Step 3 -->
+        <div class="flex-1 min-w-[160px] max-w-[220px] text-center px-5 py-8 hover:-translate-y-1 transition-transform duration-300">
+          <p class="text-zapple-red text-[0.65rem] font-black tracking-[2px] mb-2">03</p>
+          <div class="text-4xl mb-3">📅</div>
+          <h4 class="text-white font-bold text-base mb-1.5">Book Your Slot</h4>
+          <p class="text-white/40 text-xs leading-relaxed">Pick a date at your preferred branch</p>
+        </div>
+        <div class="text-white/15 text-2xl self-center mt-[-20px] hidden sm:block">→</div>
+        <!-- Step 4 -->
+        <div class="flex-1 min-w-[160px] max-w-[220px] text-center px-5 py-8 hover:-translate-y-1 transition-transform duration-300">
+          <p class="text-zapple-red text-[0.65rem] font-black tracking-[2px] mb-2">04</p>
+          <div class="text-4xl mb-3">✨</div>
+          <h4 class="text-white font-bold text-base mb-1.5">Cherish Forever</h4>
+          <p class="text-white/40 text-xs leading-relaxed">Receive stunning, edited photographs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= BRANCHES ============================= -->
+  <section class="py-24 bg-zapple-cream" id="branches">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="text-center mb-14">
+        <p class="flex items-center justify-center gap-3 text-zapple-red text-[0.7rem] font-bold tracking-[3px] uppercase mb-3">
+          <span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>Find Us<span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>
+        </p>
+        <h2 class="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold text-charcoal leading-tight mb-4">
+          Our <em class="text-zapple-red italic">Studio Branches</em>
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto text-base leading-[1.7]">
+          Two premium studio locations across Chennai — pick the one closest to you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Branch 1: Arumbakkam -->
+        <div id="branch-arumbakkam"
+             class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-md hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300">
+          <!-- Visual -->
+          <div class="h-44 relative overflow-hidden bg-gradient-to-br from-charcoal to-charcoal-3 flex flex-col items-center justify-center gap-3">
+            <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 60%, rgba(212,43,43,0.3), transparent 70%)"></div>
+            <div class="pin-bounce text-5xl relative z-10">📍</div>
+            <span class="text-white/70 text-xs font-bold tracking-[3px] uppercase relative z-10">Arumbakkam</span>
+          </div>
+          <!-- Body -->
+          <div class="p-7">
+            <span class="text-zapple-red text-[0.65rem] font-black tracking-[2px] uppercase">Branch 01</span>
+            <h3 class="font-playfair text-2xl font-bold mt-1 mb-3">Arumbakkam</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-5">📍 Chennai – 600106<br />Near Arumbakkam Metro Station</p>
+            <div class="flex items-start gap-3 bg-zapple-cream rounded-xl p-4 mb-5">
+              <span class="text-xl flex-shrink-0">🕐</span>
+              <div>
+                <strong class="text-sm text-charcoal block mb-0.5">Studio Hours</strong>
+                <p class="text-xs text-gray-400">Mon–Sat: 9:00 AM – 7:00 PM</p>
+                <p class="text-xs text-gray-400">Sun: 10:00 AM – 5:00 PM</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="tel:+919876543210"
+                 class="flex-1 text-center bg-zapple-red text-white text-sm font-semibold px-5 py-3 rounded-full hover:bg-zapple-dark hover:-translate-y-0.5 transition-all duration-300">
+                📞 Call Studio
+              </a>
+              <a href="#enquiry"
+                 class="flex-1 text-center bg-transparent text-zapple-red text-sm font-semibold px-5 py-3 rounded-full border-2 border-zapple-red hover:bg-zapple-red hover:text-white hover:-translate-y-0.5 transition-all duration-300">
+                Book Here
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 2: Keelkatalai -->
+        <div id="branch-keelkatalai"
+             class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-md hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300">
+          <div class="h-44 relative overflow-hidden bg-gradient-to-br from-[#111] to-[#1e1e1e] flex flex-col items-center justify-center gap-3">
+            <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 60%, rgba(212,43,43,0.25), transparent 70%)"></div>
+            <div class="pin-bounce text-5xl relative z-10">📍</div>
+            <span class="text-white/70 text-xs font-bold tracking-[3px] uppercase relative z-10">Keelkatalai</span>
+          </div>
+          <div class="p-7">
+            <span class="text-zapple-red text-[0.65rem] font-black tracking-[2px] uppercase">Branch 02</span>
+            <h3 class="font-playfair text-2xl font-bold mt-1 mb-3">Keelkatalai</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-5">📍 Chennai – 600117<br />Near Keelkatalai Junction</p>
+            <div class="flex items-start gap-3 bg-zapple-cream rounded-xl p-4 mb-5">
+              <span class="text-xl flex-shrink-0">🕐</span>
+              <div>
+                <strong class="text-sm text-charcoal block mb-0.5">Studio Hours</strong>
+                <p class="text-xs text-gray-400">Mon–Sat: 9:00 AM – 7:00 PM</p>
+                <p class="text-xs text-gray-400">Sun: 10:00 AM – 5:00 PM</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="tel:+919876543211"
+                 class="flex-1 text-center bg-zapple-red text-white text-sm font-semibold px-5 py-3 rounded-full hover:bg-zapple-dark hover:-translate-y-0.5 transition-all duration-300">
+                📞 Call Studio
+              </a>
+              <a href="#enquiry"
+                 class="flex-1 text-center bg-transparent text-zapple-red text-sm font-semibold px-5 py-3 rounded-full border-2 border-zapple-red hover:bg-zapple-red hover:text-white hover:-translate-y-0.5 transition-all duration-300">
+                Book Here
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= GALLERY ============================= -->
+  <section class="py-24 bg-zapple-warm" id="gallery">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <p class="flex items-center justify-center gap-3 text-zapple-red text-[0.7rem] font-bold tracking-[3px] uppercase mb-3">
+          <span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>Our Work<span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>
+        </p>
+        <h2 class="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold text-charcoal leading-tight">
+          Moments We've <em class="text-zapple-red italic">Captured</em>
+        </h2>
+      </div>
+    </div>
+
+    <div class="gallery-grid max-w-7xl mx-auto px-6">
+      <div class="gallery-item tall relative overflow-hidden rounded-xl cursor-pointer group" data-aos>
+        <img src="assets/gallery1.png" alt="Newborn baby in basket" loading="lazy"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-white text-sm font-semibold">Newborn Shoot</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer group" data-aos data-aos-delay="100">
+        <img src="assets/gallery2.png" alt="Baby girl portrait" loading="lazy"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-white text-sm font-semibold">Baby Shoot · 8 Months</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer group" data-aos data-aos-delay="150">
+        <img src="assets/gallery3.png" alt="Maternity couple shoot" loading="lazy"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-white text-sm font-semibold">Maternity Shoot</span>
+        </div>
+      </div>
+      <div class="gallery-item tall relative overflow-hidden rounded-xl cursor-pointer group" data-aos data-aos-delay="200">
+        <img src="assets/gallery4.png" alt="Toddler birthday shoot" loading="lazy"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-white text-sm font-semibold">Toddler Shoot</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer group" data-aos data-aos-delay="100">
+        <img src="assets/gallery5.png" alt="Newborn twins" loading="lazy"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-white text-sm font-semibold">Newborn Twins</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer group" data-aos data-aos-delay="200">
+        <img src="assets/gallery6.png" alt="Baby in suitcase" loading="lazy"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-white text-sm font-semibold">Baby Shoot · Creative</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= REVIEWS ============================= -->
+  <section class="py-24 bg-charcoal overflow-hidden" id="reviews">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="flex items-center justify-center gap-3 text-white/40 text-[0.7rem] font-bold tracking-[3px] uppercase mb-3">
+          <span class="w-6 h-0.5 bg-white/20 rounded"></span>Google Reviews<span class="w-6 h-0.5 bg-white/20 rounded"></span>
+        </p>
+        <h2 class="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold text-white leading-tight mb-6">
+          What Parents <em class="text-white/60 italic">Say About Us</em>
+        </h2>
+        <div class="flex items-center justify-center gap-5 flex-wrap">
+          <span class="font-playfair text-5xl font-black text-zapple-red">4.9</span>
+          <span class="text-[1.8rem] text-yellow-400 tracking-[2px]">★★★★★</span>
+          <span class="text-white/40 text-sm">Based on 300+ Google Reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrolling Reviews -->
+    <div class="reviews-mask overflow-hidden mt-12">
+      <div class="reviews-scroll flex gap-6 w-max">
+
+        <!-- Review 1 -->
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6 hover:border-zapple-red/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full bg-zapple-red flex items-center justify-center text-white font-bold text-base flex-shrink-0">P</div>
+            <div class="flex-1">
+              <p class="text-white text-sm font-semibold">Priya Krishnamurthy</p>
+              <p class="text-yellow-400 text-xs tracking-wider">★★★★★</p>
+            </div>
+            <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black flex-shrink-0">G</div>
+          </div>
+          <p class="text-white/60 text-xs leading-[1.7] italic mb-3">"Zapple Studio made our newborn shoot an unforgettable experience! The team was so patient and gentle with our 10-day-old. The photos came out absolutely stunning!"</p>
+          <p class="text-white/25 text-xs">2 weeks ago · Arumbakkam</p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6 hover:border-zapple-red/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base flex-shrink-0" style="background:#7c4dff">R</div>
+            <div class="flex-1">
+              <p class="text-white text-sm font-semibold">Rajesh & Kavitha</p>
+              <p class="text-yellow-400 text-xs tracking-wider">★★★★★</p>
+            </div>
+            <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black flex-shrink-0">G</div>
+          </div>
+          <p class="text-white/60 text-xs leading-[1.7] italic mb-3">"Booked for our daughter's 6-month sitter session. The props, lighting, and backdrop were exceptional. Our little one was comfortable and the smiles were perfect!"</p>
+          <p class="text-white/25 text-xs">1 month ago · Keelkatalai</p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6 hover:border-zapple-red/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base flex-shrink-0" style="background:#00897b">A</div>
+            <div class="flex-1">
+              <p class="text-white text-sm font-semibold">Anitha Suresh</p>
+              <p class="text-yellow-400 text-xs tracking-wider">★★★★★</p>
+            </div>
+            <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black flex-shrink-0">G</div>
+          </div>
+          <p class="text-white/60 text-xs leading-[1.7] italic mb-3">"My maternity shoot at Zapple was a dream! They made me feel so beautiful and confident. The gowns they provided were gorgeous. So glad I chose them!"</p>
+          <p class="text-white/25 text-xs">3 weeks ago · Arumbakkam</p>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6 hover:border-zapple-red/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base flex-shrink-0" style="background:#f57c00">M</div>
+            <div class="flex-1">
+              <p class="text-white text-sm font-semibold">Meena Selvam</p>
+              <p class="text-yellow-400 text-xs tracking-wider">★★★★★</p>
+            </div>
+            <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black flex-shrink-0">G</div>
+          </div>
+          <p class="text-white/60 text-xs leading-[1.7] italic mb-3">"Our twin newborns were 15 days old and the studio team handled them so carefully. Best decision we made! Already booked for their 6-month shoot!"</p>
+          <p class="text-white/25 text-xs">5 days ago · Keelkatalai</p>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6 hover:border-zapple-red/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base flex-shrink-0" style="background:#c2185b">D</div>
+            <div class="flex-1">
+              <p class="text-white text-sm font-semibold">Deepa & Arun</p>
+              <p class="text-yellow-400 text-xs tracking-wider">★★★★★</p>
+            </div>
+            <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black flex-shrink-0">G</div>
+          </div>
+          <p class="text-white/60 text-xs leading-[1.7] italic mb-3">"The toddler shoot for our 18-month-old was so much fun! The team was incredibly patient and playful. The results were magical. Highly recommend Zapple!"</p>
+          <p class="text-white/25 text-xs">2 months ago · Arumbakkam</p>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6 hover:border-zapple-red/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base flex-shrink-0" style="background:#1565c0">S</div>
+            <div class="flex-1">
+              <p class="text-white text-sm font-semibold">Sowmiya Prakash</p>
+              <p class="text-yellow-400 text-xs tracking-wider">★★★★★</p>
+            </div>
+            <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black flex-shrink-0">G</div>
+          </div>
+          <p class="text-white/60 text-xs leading-[1.7] italic mb-3">"Professional, warm and talented team! They sent theme options beforehand and helped us choose. Edited photos delivered quickly and the quality is outstanding!"</p>
+          <p class="text-white/25 text-xs">3 months ago · Keelkatalai</p>
+        </div>
+
+        <!-- Duplicate for infinite loop -->
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6"><div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 rounded-full bg-zapple-red flex items-center justify-center text-white font-bold">P</div><div><p class="text-white text-sm font-semibold">Priya Krishnamurthy</p><p class="text-yellow-400 text-xs">★★★★★</p></div><div class="ml-auto w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black">G</div></div><p class="text-white/60 text-xs leading-[1.7] italic mb-3">"Zapple Studio made our newborn shoot an unforgettable experience! The team was so patient and gentle with our 10-day-old. The photos came out absolutely stunning!"</p><p class="text-white/25 text-xs">2 weeks ago · Arumbakkam</p></div>
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6"><div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold" style="background:#7c4dff">R</div><div><p class="text-white text-sm font-semibold">Rajesh & Kavitha</p><p class="text-yellow-400 text-xs">★★★★★</p></div><div class="ml-auto w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black">G</div></div><p class="text-white/60 text-xs leading-[1.7] italic mb-3">"Booked for our daughter's 6-month sitter session. The props, lighting, and backdrop were exceptional. Our little one was comfortable and the smiles were perfect!"</p><p class="text-white/25 text-xs">1 month ago · Keelkatalai</p></div>
+        <div class="w-[340px] flex-shrink-0 bg-charcoal-2 border border-white/8 rounded-2xl p-6"><div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold" style="background:#00897b">A</div><div><p class="text-white text-sm font-semibold">Anitha Suresh</p><p class="text-yellow-400 text-xs">★★★★★</p></div><div class="ml-auto w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#4285F4] text-xs font-black">G</div></div><p class="text-white/60 text-xs leading-[1.7] italic mb-3">"My maternity shoot at Zapple was a dream! They made me feel so beautiful and confident. The gowns they provided were gorgeous. So glad I chose them!"</p><p class="text-white/25 text-xs">3 weeks ago · Arumbakkam</p></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= INSTAGRAM ============================= -->
+  <section class="py-24 bg-zapple-warm" id="instagram">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <p class="flex items-center justify-center gap-3 text-zapple-red text-[0.7rem] font-bold tracking-[3px] uppercase mb-3">
+          <span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>Follow Our Journey<span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>
+        </p>
+        <h2 class="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold text-charcoal leading-tight mb-3">
+          We're on <em class="text-zapple-red italic">Instagram</em>
+        </h2>
+        <p class="text-gray-500">
+          <a href="https://instagram.com/zapplestudio" target="_blank"
+             class="text-zapple-red font-bold hover:underline">@zapplestudio</a>
+          — Follow for behind-the-scenes, themes & adorable previews!
+        </p>
+      </div>
+
+      <div class="insta-grid mb-8">
+        <a href="https://instagram.com/zapplestudio" target="_blank" class="insta-post relative overflow-hidden rounded-xl block group">
+          <img src="assets/gallery1.png" alt="Instagram post" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-zapple-red/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+            <span class="text-3xl">📷</span>
+          </div>
+        </a>
+        <a href="https://instagram.com/zapplestudio" target="_blank" class="insta-post relative overflow-hidden rounded-xl block group">
+          <img src="assets/gallery2.png" alt="Instagram post" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-zapple-red/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+            <span class="text-3xl">📷</span>
+          </div>
+        </a>
+        <a href="https://instagram.com/zapplestudio" target="_blank" class="insta-post relative overflow-hidden rounded-xl block group">
+          <img src="assets/gallery4.png" alt="Instagram post" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-zapple-red/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+            <span class="text-3xl">📷</span>
+          </div>
+        </a>
+        <a href="https://instagram.com/zapplestudio" target="_blank" class="insta-post relative overflow-hidden rounded-xl block group">
+          <img src="assets/maternity_shoot.png" alt="Instagram post" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-zapple-red/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+            <span class="text-3xl">📷</span>
+          </div>
+        </a>
+        <a href="https://instagram.com/zapplestudio" target="_blank" class="insta-post relative overflow-hidden rounded-xl block group">
+          <img src="assets/gallery5.png" alt="Instagram post" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-zapple-red/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+            <span class="text-3xl">📷</span>
+          </div>
+        </a>
+        <a href="https://instagram.com/zapplestudio" target="_blank" class="insta-post relative overflow-hidden rounded-xl block group">
+          <img src="assets/gallery6.png" alt="Instagram post" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-zapple-red/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+            <span class="text-3xl">📷</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center">
+        <a href="https://instagram.com/zapplestudio" target="_blank" id="follow-insta-btn"
+           class="inline-flex items-center gap-3 text-white font-semibold px-8 py-3.5 rounded-full hover:-translate-y-0.5 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(131,58,180,0.35)]"
+           style="background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg>
+          Follow @zapplestudio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= ENQUIRY ============================= -->
+  <section class="py-24 relative overflow-hidden" id="enquiry"
+           style="background: linear-gradient(135deg, #1a0000 0%, #1A1A1A 100%)">
+    <!-- Glow orb -->
+    <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full pointer-events-none"
+         style="background: radial-gradient(circle, rgba(212,43,43,0.15), transparent 70%)"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left -->
+        <div>
+          <p class="flex items-center gap-3 text-white/40 text-[0.7rem] font-bold tracking-[3px] uppercase mb-4">
+            <span class="w-6 h-0.5 bg-white/20 rounded"></span>Start Your Journey
+          </p>
+          <h2 class="font-playfair text-[clamp(2rem,3.5vw,2.8rem)] font-bold text-white leading-tight mb-4">
+            Book Your <em class="text-zapple-red italic">Dream Shoot</em>
+          </h2>
+          <p class="text-white/50 text-base leading-[1.7] mb-7">
+            Fill in your details below and our team will reach out with exclusive theme options tailored just for you — within 24 hours!
+          </p>
+
+          <div class="flex flex-col gap-3 mb-8">
+            <div class="flex items-center gap-3 text-white/70 text-sm">
+              <span class="w-5 h-5 bg-zapple-red rounded-full flex items-center justify-center text-white text-[0.65rem] font-bold flex-shrink-0">✓</span>
+              Personalized theme options shared
+            </div>
+            <div class="flex items-center gap-3 text-white/70 text-sm">
+              <span class="w-5 h-5 bg-zapple-red rounded-full flex items-center justify-center text-white text-[0.65rem] font-bold flex-shrink-0">✓</span>
+              No commitment required
+            </div>
+            <div class="flex items-center gap-3 text-white/70 text-sm">
+              <span class="w-5 h-5 bg-zapple-red rounded-full flex items-center justify-center text-white text-[0.65rem] font-bold flex-shrink-0">✓</span>
+              Quick response within 24 hrs
+            </div>
+            <div class="flex items-center gap-3 text-white/70 text-sm">
+              <span class="w-5 h-5 bg-zapple-red rounded-full flex items-center justify-center text-white text-[0.65rem] font-bold flex-shrink-0">✓</span>
+              Both branches available
+            </div>
+          </div>
+
+          <a href="https://wa.me/919876543210" id="whatsapp-btn"
+             class="inline-flex items-center gap-3 bg-[#25D366] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#1daa4f] hover:-translate-y-0.5 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M22.5 9.5C20.8 7.8 18.5 6.8 16 6.8C10.9 6.8 6.8 10.9 6.8 16C6.8 17.7 7.3 19.4 8.1 20.8L6.8 25.2L11.3 23.9C12.7 24.7 14.3 25.1 16 25.1C21.1 25.1 25.2 21 25.2 15.9C25.2 13.4 24.2 11.1 22.5 9.5ZM16 23.5C14.5 23.5 13 23.1 11.8 22.3L11.5 22.1L8.8 22.9L9.6 20.3L9.4 20C8.5 18.7 8 17.4 8 16C8 11.6 11.6 8 16 8C18.1 8 20.1 8.8 21.6 10.3C23.1 11.8 23.9 13.8 23.9 16C24 20.4 20.4 23.5 16 23.5ZM20.4 17.9C20.1 17.7 18.7 17.1 18.5 17C18.3 16.9 18.1 16.9 18 17.1C17.8 17.3 17.4 17.9 17.2 18.1C17.1 18.3 16.9 18.3 16.7 18.2C15.3 17.5 14.4 16.9 13.5 15.4C13.3 15.1 13.6 15.1 13.8 14.5C13.8 14.3 13.8 14.1 13.7 14C13.6 13.8 13.1 12.4 12.9 11.9C12.7 11.4 12.5 11.5 12.3 11.5H11.8C11.6 11.5 11.3 11.6 11.1 11.8C10.9 12 10.3 12.6 10.3 14C10.3 15.4 11.1 16.7 11.3 17C11.5 17.3 13.1 19.6 15.4 20.5C17.3 21.3 17.7 21 18.2 20.9C18.7 20.8 19.8 20.2 20 19.6C20.3 19 20.3 18.5 20.2 18.3C20.1 18.2 20.6 18.1 20.4 17.9Z" fill="white"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="bg-white rounded-3xl p-8 md:p-10 shadow-[0_24px_64px_rgba(0,0,0,0.18)]">
+          <form id="enquiryForm" novalidate class="flex flex-col gap-4">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label for="parentName" class="text-xs font-semibold text-charcoal tracking-wide">Parent's Name *</label>
+                <input id="parentName" name="parentName" type="text" placeholder="Your full name" required
+                       class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-zapple-warm focus:border-zapple-red focus:bg-white focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 placeholder-gray-300" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="phone" class="text-xs font-semibold text-charcoal tracking-wide">Phone Number *</label>
+                <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" required
+                       class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-zapple-warm focus:border-zapple-red focus:bg-white focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 placeholder-gray-300" />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label for="email" class="text-xs font-semibold text-charcoal tracking-wide">Email Address</label>
+              <input id="email" name="email" type="email" placeholder="your@email.com"
+                     class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-zapple-warm focus:border-zapple-red focus:bg-white focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 placeholder-gray-300" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label for="shootType" class="text-xs font-semibold text-charcoal tracking-wide">Shoot Type *</label>
+                <select id="shootType" name="shootType" required
+                        class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-zapple-warm focus:border-zapple-red focus:bg-white focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 cursor-pointer">
+                  <option value="" disabled selected>Select shoot type</option>
+                  <option value="newborn">🍼 Newborn Baby Shoot (5–25 days)</option>
+                  <option value="baby">🎈 Baby Shoot (6–12 months)</option>
+                  <option value="toddler">🌟 Toddler Shoot (1–2 years)</option>
+                  <option value="maternity">🌸 Maternity Shoot</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="branch" class="text-xs font-semibold text-charcoal tracking-wide">Preferred Branch *</label>
+                <select id="branch" name="branch" required
+                        class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-zapple-warm focus:border-zapple-red focus:bg-white focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 cursor-pointer">
+                  <option value="" disabled selected>Select branch</option>
+                  <option value="arumbakkam">📍 Arumbakkam</option>
+                  <option value="keelkatalai">📍 Keelkatalai</option>
+                  <option value="any">Any Branch</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label for="babyAge" class="text-xs font-semibold text-charcoal tracking-wide">Baby's Age / Due Date</label>
+              <input id="babyAge" name="babyAge" type="text" placeholder="e.g. 10 days old / Due: Aug 2025"
+                     class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-zapple-warm focus:border-zapple-red focus:bg-white focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 placeholder-gray-300" />
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label for="message" class="text-xs font-semibold text-charcoal tracking-wide">Anything you'd like us to know?</label>
+              <textarea id="message" name="message" rows="3" placeholder="Special requests, questions, or anything on your mind..."
+                        class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-zapple-warm focus:border-zapple-red focus:bg-white focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 resize-none placeholder-gray-300"></textarea>
+            </div>
+
+            <button type="submit" id="submit-enquiry-btn"
+                    class="w-full bg-zapple-red text-white font-semibold py-4 rounded-xl text-base hover:bg-zapple-dark hover:-translate-y-0.5 hover:shadow-red-glow transition-all duration-300 mt-1 flex items-center justify-center gap-2">
+              <span class="btn-text">Send Enquiry 🎉</span>
+              <span class="btn-loading hidden">Sending...</span>
+            </button>
+          </form>
+
+          <!-- Success state -->
+          <div id="formSuccess" class="hidden text-center py-12 px-4">
+            <div class="text-6xl mb-4">🎊</div>
+            <h3 class="font-playfair text-2xl font-bold text-charcoal mb-3">Enquiry Received!</h3>
+            <p class="text-gray-400 leading-[1.7]">Thank you! Our team will reach out with personalized theme options within 24 hours. Check your WhatsApp!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="bg-[#111] pt-16 pb-0">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/[0.07]">
+
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <a href="#home" class="flex items-center gap-3 mb-4 no-underline">
+            <span class="font-playfair text-3xl font-black text-zapple-red leading-none">7.</span>
+            <div class="flex flex-col leading-tight">
+              <span class="font-playfair text-lg font-bold text-white tracking-wide">Zapple</span>
+              <span class="text-[0.6rem] font-medium text-white/50 tracking-[3px] uppercase">Studio</span>
+            </div>
+          </a>
+          <p class="text-white/35 text-sm leading-[1.7] max-w-[280px]">
+            Chennai's most-loved photography studio capturing your family's most precious milestones with warmth and artistry.
+          </p>
+          <div class="flex gap-3 mt-5">
+            <a href="https://instagram.com/zapplestudio" target="_blank" aria-label="Instagram"
+               class="w-9 h-9 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-zapple-red hover:text-white hover:-translate-y-0.5 transition-all duration-300">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+            </a>
+            <a href="https://facebook.com/zapplestudio" target="_blank" aria-label="Facebook"
+               class="w-9 h-9 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-zapple-red hover:text-white hover:-translate-y-0.5 transition-all duration-300">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://wa.me/919876543210" target="_blank" aria-label="WhatsApp"
+               class="w-9 h-9 bg-white/5 rounded-full flex items-center justify-center text-white/40 hover:bg-zapple-red hover:text-white hover:-translate-y-0.5 transition-all duration-300">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h5 class="text-white/30 text-[0.7rem] font-bold tracking-[2px] uppercase mb-4">Services</h5>
+          <ul class="flex flex-col gap-2.5 list-none">
+            <li><a href="#services" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Newborn Shoot</a></li>
+            <li><a href="#services" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Baby Shoot</a></li>
+            <li><a href="#services" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Toddler Shoot</a></li>
+            <li><a href="#services" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Maternity Shoot</a></li>
+          </ul>
+        </div>
+
+        <!-- Branches -->
+        <div>
+          <h5 class="text-white/30 text-[0.7rem] font-bold tracking-[2px] uppercase mb-4">Branches</h5>
+          <ul class="flex flex-col gap-2.5 list-none mb-6">
+            <li><a href="#branches" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Arumbakkam</a></li>
+            <li><a href="#branches" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Keelkatalai</a></li>
+          </ul>
+          <h5 class="text-white/30 text-[0.7rem] font-bold tracking-[2px] uppercase mb-4">Quick Links</h5>
+          <ul class="flex flex-col gap-2.5 list-none">
+            <li><a href="#gallery"  class="text-white/50 text-sm hover:text-white transition-colors duration-300">Gallery</a></li>
+            <li><a href="#reviews"  class="text-white/50 text-sm hover:text-white transition-colors duration-300">Reviews</a></li>
+            <li><a href="#enquiry"  class="text-white/50 text-sm hover:text-white transition-colors duration-300">Book a Shoot</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h5 class="text-white/30 text-[0.7rem] font-bold tracking-[2px] uppercase mb-4">Contact Us</h5>
+          <ul class="flex flex-col gap-3 list-none">
+            <li class="flex gap-2 text-white/50 text-sm"><span>📞</span><a href="tel:+919876543210" class="hover:text-white transition-colors duration-300">+91 98765 43210</a></li>
+            <li class="flex gap-2 text-white/50 text-sm"><span>📞</span><a href="tel:+919876543211" class="hover:text-white transition-colors duration-300">+91 98765 43211</a></li>
+            <li class="flex gap-2 text-white/50 text-sm"><span>📧</span><a href="mailto:hello@zapplestudio.com" class="hover:text-white transition-colors duration-300">hello@zapplestudio.com</a></li>
+            <li class="flex gap-2 text-white/50 text-sm"><span>🕐</span>Mon–Sat: 9 AM – 7 PM</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 py-5">
+        <p class="text-white/20 text-xs">© 2025 Zapple Studio. All rights reserved. Made with ❤️ in Chennai.</p>
+        <div class="flex gap-5">
+          <a href="#" class="text-white/20 text-xs hover:text-white/50 transition-colors duration-300">Privacy Policy</a>
+          <a href="#" class="text-white/20 text-xs hover:text-white/50 transition-colors duration-300">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================= LIGHTBOX ============================= -->
+  <div id="lightbox" class="hidden fixed inset-0 bg-black/92 z-[9999] items-center justify-center">
+    <button id="lightboxClose"
+            class="absolute top-5 right-6 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-zapple-red transition-all duration-300 border-none cursor-pointer text-lg">✕</button>
+    <img id="lightboxImg" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl lightbox-img-in" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
