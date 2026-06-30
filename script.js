@@ -16,10 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   hamburger.addEventListener('click', () => {
     const isOpen = hamburger.classList.toggle('active');
-    // Toggle mobile menu visibility
-    mobileMenu.classList.toggle('hidden',  !isOpen);
-    mobileMenu.classList.toggle('flex',     isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    
+    if (isOpen) {
+      mobileMenu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+    } else {
+      closeMenu();
+    }
   });
 
   // Close on link click
@@ -29,8 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeMenu() {
     hamburger.classList.remove('active');
-    mobileMenu.classList.add('hidden');
-    mobileMenu.classList.remove('flex');
+    mobileMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
     document.body.style.overflow = '';
   }
 
@@ -140,11 +142,27 @@ document.addEventListener('DOMContentLoaded', () => {
     btnLoad.classList.remove('hidden');
     btn.disabled = true;
 
-    setTimeout(() => {
+    // Use fetch to submit to FormSubmit
+    const formData = new FormData(form);
+    fetch(form.action || 'https://formsubmit.co/ajax/team@zapplestudio.com', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
       form.style.display = 'none';
       formSuccess.classList.remove('hidden');
       formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 1800);
+    })
+    .catch(error => {
+      console.error('Form submission error:', error);
+      btnText.classList.remove('hidden');
+      btnLoad.classList.add('hidden');
+      btn.disabled = false;
+      alert("There was an error submitting your enquiry. Please try again or contact us on WhatsApp.");
+    });
   });
 
   form.querySelectorAll('input, select, textarea').forEach(field => {
@@ -198,9 +216,39 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
       if (window.scrollY >= section.offsetTop - 120) current = section.id;
     });
-    document.querySelectorAll('#navbar ul a').forEach(link => {
+    document.querySelectorAll('#navbar ul a:not(#nav-book-btn)').forEach(link => {
       link.classList.toggle('nav-link-active', link.getAttribute('href') === `#${current}`);
     });
   }, { passive: true });
+
+  /* ---- WHATSAPP WIDGET ---- */
+  const whatsappToggle = document.getElementById('whatsapp-toggle');
+  const whatsappPopup = document.getElementById('whatsapp-popup');
+  const chatCloseBtn = document.getElementById('chat-close-btn');
+
+  if (whatsappToggle && whatsappPopup && chatCloseBtn) {
+    whatsappToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      whatsappPopup.classList.toggle('active');
+      whatsappPopup.classList.toggle('opacity-0');
+      whatsappPopup.classList.toggle('invisible');
+      whatsappPopup.classList.toggle('translate-y-4');
+    });
+
+    chatCloseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      whatsappPopup.classList.remove('active');
+      whatsappPopup.classList.add('opacity-0', 'invisible', 'translate-y-4');
+    });
+
+    // Close when clicking outside the widget
+    document.addEventListener('click', (e) => {
+      const widget = document.getElementById('whatsapp-widget');
+      if (widget && !widget.contains(e.target)) {
+        whatsappPopup.classList.remove('active');
+        whatsappPopup.classList.add('opacity-0', 'invisible', 'translate-y-4');
+      }
+    });
+  }
 
 });
