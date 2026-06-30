@@ -3,6 +3,7 @@
    ============================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  let hasEngaged = false;
 
   /* ---- NAVBAR SCROLL ---- */
   const navbar = document.getElementById('navbar');
@@ -142,9 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
     btnLoad.classList.remove('hidden');
     btn.disabled = true;
 
-    // Use fetch to submit to FormSubmit
     const formData = new FormData(form);
-    fetch(form.action || 'https://formsubmit.co/ajax/team@zapplestudio.com', {
+    
+    fetch(form.action, {
       method: 'POST',
       body: formData,
       headers: {
@@ -155,6 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
       form.style.display = 'none';
       formSuccess.classList.remove('hidden');
       formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // If hasEngaged is defined globally, mark true
+      if (typeof hasEngaged !== 'undefined') hasEngaged = true;
     })
     .catch(error => {
       console.error('Form submission error:', error);
@@ -250,5 +253,95 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ---- SMART LEAD POPUP ---- */
+  const leadPopup = document.getElementById('lead-popup');
+  const leadPopupContent = document.getElementById('lead-popup-content');
+  const leadPopupBg = document.getElementById('lead-popup-bg');
+  const leadPopupClose = document.getElementById('lead-popup-close');
+  const leadForm = document.getElementById('lead-form');
+  const leadFormContainer = document.getElementById('lead-form-container');
+  const leadSuccess = document.getElementById('lead-success');
+
+  function showLeadPopup() {
+    if (hasEngaged || sessionStorage.getItem('zapplePopupShown')) return;
+    
+    leadPopup.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+    setTimeout(() => {
+      leadPopupContent.classList.remove('scale-95');
+      leadPopupContent.classList.add('scale-100');
+    }, 10);
+    
+    sessionStorage.setItem('zapplePopupShown', 'true');
+  }
+
+  function closeLeadPopup() {
+    leadPopupContent.classList.remove('scale-100');
+    leadPopupContent.classList.add('scale-95');
+    leadPopup.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+  }
+
+  if (leadPopup) {
+    leadPopupClose.addEventListener('click', closeLeadPopup);
+    leadPopupBg.addEventListener('click', closeLeadPopup);
+    
+    // Trigger 1: Exit Intent (Desktop)
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 0) showLeadPopup();
+    });
+
+    // Trigger 2: Inactivity (Mobile/All)
+    setTimeout(() => {
+      showLeadPopup();
+    }, 15000);
+
+    // Trigger 3: Scroll Up (Mobile/All)
+    let lastScroll = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll < lastScroll - 50 && currentScroll > 500) {
+        showLeadPopup();
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+    
+    // Handle form submission
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('lead-submit-btn');
+      const btnText = btn.querySelector('.btn-text');
+      const btnLoad = btn.querySelector('.btn-loading');
+      
+      btnText.classList.add('hidden');
+      btnLoad.classList.remove('hidden');
+      btn.disabled = true;
+
+      const formData = new FormData(leadForm);
+
+      fetch(leadForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        leadFormContainer.classList.add('hidden');
+        leadSuccess.classList.remove('hidden');
+        hasEngaged = true;
+        setTimeout(closeLeadPopup, 4000);
+      })
+      .catch(error => {
+        console.error('Popup submit error:', error);
+        btnText.classList.remove('hidden');
+        btnLoad.classList.add('hidden');
+        btn.disabled = false;
+        alert("There was an error. Please contact us on WhatsApp.");
+      });
+    });
+  }
+
+  /* ---- TRACK ENGAGEMENT ---- */
+  document.querySelectorAll('#whatsapp-toggle, #whatsapp-btn, #nav-book-btn, #hero-book-btn').forEach(btn => {
+    btn.addEventListener('click', () => { hasEngaged = true; });
+  });
 
 });

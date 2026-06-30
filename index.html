@@ -1240,8 +1240,10 @@
 
         <!-- Right: Form -->
         <div class="bg-white rounded-3xl p-8 md:p-10 shadow-[0_24px_64px_rgba(0,0,0,0.18)] order-1 lg:order-2">
-          <form id="enquiryForm" action="https://formsubmit.co/team@zapplestudio.com" method="POST" novalidate
+          <form id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" novalidate
             class="flex flex-col gap-4">
+            <input type="hidden" name="access_key" value="f41738c2-c0d6-40f5-b2a9-6ce3b34267ad">
+            <input type="hidden" name="subject" value="New Booking Enquiry!">
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="flex flex-col gap-1.5">
@@ -1482,6 +1484,69 @@
           fill="currentColor" />
       </svg>
     </button>
+  </div>
+
+  <!-- ============================= LEAD POPUP ============================= -->
+  <div id="lead-popup" class="fixed inset-0 z-[9999] opacity-0 invisible pointer-events-none transition-all duration-500 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-charcoal/90 backdrop-blur-md" id="lead-popup-bg"></div>
+    <div class="relative bg-white w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row transform scale-95 transition-transform duration-500" id="lead-popup-content">
+      <button id="lead-popup-close" class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-black/10 backdrop-blur-sm rounded-full flex items-center justify-center text-charcoal md:text-white md:bg-black/20 hover:text-charcoal md:hover:text-white transition-all duration-300">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 1L1 13M1 1l12 12"/></svg>
+      </button>
+
+      <div class="hidden md:block w-1/2 relative bg-charcoal-2">
+        <img src="assets/gallery3.png" alt="Maternity Shoot" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex flex-col justify-end p-8">
+          <h3 class="text-white font-playfair text-2xl font-bold mb-2">Capture the Magic</h3>
+          <p class="text-white/80 text-sm leading-relaxed">Don't let these precious moments slip away.</p>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-center bg-zapple-warm relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-40 h-40 bg-zapple-red/5 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div id="lead-form-container" class="relative z-10">
+          <h3 class="font-playfair text-2xl md:text-3xl font-bold text-charcoal mb-2 leading-tight">Wait! Don't leave empty handed.</h3>
+          <p class="text-gray-500 text-sm mb-8 leading-[1.6]">Enter your details below and our team will send the <strong>2025 Theme Catalog & Pricing Guide</strong> to your WhatsApp shortly!</p>
+
+          <form id="lead-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4">
+            <input type="hidden" name="access_key" value="f41738c2-c0d6-40f5-b2a9-6ce3b34267ad">
+            <input type="hidden" name="subject" value="New Lead from Exit Popup!">
+
+            <div class="flex flex-col gap-1.5">
+              <input name="name" type="text" placeholder="Your Name" required class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-white focus:border-zapple-red focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 placeholder-gray-400" />
+            </div>
+            
+            <div class="flex flex-col gap-1.5">
+              <input name="phone" type="tel" placeholder="WhatsApp Number" required class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-white focus:border-zapple-red focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 placeholder-gray-400" />
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <select name="shootType" required class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-white focus:border-zapple-red focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 text-charcoal">
+                <option value="" disabled selected>Select Shoot Type</option>
+                <option value="Newborn">🍼 Newborn</option>
+                <option value="Baby">🎈 Baby (Sitter)</option>
+                <option value="Toddler">🌟 Toddler</option>
+                <option value="Maternity">🌸 Maternity</option>
+              </select>
+            </div>
+
+            <button type="submit" id="lead-submit-btn" class="w-full bg-zapple-red text-white font-bold py-4 rounded-xl text-[15px] hover:bg-zapple-dark hover:-translate-y-0.5 hover:shadow-red-glow transition-all duration-300 mt-2 flex items-center justify-center gap-2">
+              <span class="btn-text">Send Me The Catalog 📲</span>
+              <span class="btn-loading hidden">Sending...</span>
+            </button>
+          </form>
+          <p class="text-[0.65rem] text-center text-gray-400 mt-5">We respect your privacy. No spam, just beautiful photos.</p>
+        </div>
+        
+        <!-- Success State -->
+        <div id="lead-success" class="hidden relative z-10 text-center py-8">
+          <div class="text-6xl mb-4">✨</div>
+          <h3 class="font-playfair text-2xl font-bold text-charcoal mb-3">Check Your WhatsApp!</h3>
+          <p class="text-gray-500 text-sm leading-[1.6]">Our team has received your details and will send the catalog shortly!</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
