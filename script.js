@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- SERVICE CARDS ENTRANCE ---- */
   const serviceCards = document.querySelectorAll(
-    '#service-newborn, #service-baby, #service-toddler, #service-maternity'
+    '#service-newborn, #service-baby, #service-outdoor, #service-event, #service-birthday, #service-maternity'
   );
   const cardObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
