@@ -308,6 +308,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle form submission
     leadForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      let valid = true;
+      const required = leadForm.querySelectorAll('[required]');
+
+      required.forEach(field => {
+        field.classList.remove('border-red-500');
+        if (!field.value.trim()) {
+          field.classList.add('border-red-500');
+          valid = false;
+        }
+      });
+
+      if (!valid) return;
+
       const btn = document.getElementById('lead-submit-btn');
       const btnText = btn.querySelector('.btn-text');
       const btnLoad = btn.querySelector('.btn-loading');
@@ -336,6 +350,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.disabled = false;
         alert("There was an error. Please contact us on WhatsApp.");
       });
+    });
+
+    leadForm.querySelectorAll('input, select').forEach(field => {
+      field.addEventListener('input', () => field.classList.remove('border-red-500'));
     });
   }
 
