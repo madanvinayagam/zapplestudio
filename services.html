@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Zapple Studio – Chennai</title>
+  <meta name="description"
+    content="Browse our signature shoot packages: Newborn, Baby milestones, Outdoor, Events, Birthdays, and Maternity photography in Chennai." />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            zapple: {
+              red: '#D42B2B',
+              dark: '#a81e1e',
+              light: '#ff4444',
+              cream: '#FFF8F4',
+              warm: '#FAFAF8',
+            },
+            charcoal: {
+              DEFAULT: '#1A1A1A',
+              2: '#242424',
+              3: '#2e2e2e',
+            }
+          },
+          fontFamily: {
+            playfair: ['"Playfair Display"', 'serif'],
+            inter: ['"Inter"', 'sans-serif'],
+          },
+          animation: {
+            'pin-bounce': 'pinBounce 2s ease-in-out infinite',
+            'chat-pulse': 'chatPulse 2.4s infinite ease-in-out',
+          },
+          keyframes: {
+            pinBounce: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+            chatPulse: {
+              '0%,100%': { transform: 'translateY(0)', boxShadow: '0 0 0 0 rgba(37,211,102,0.5), 0 4px 12px rgba(37,211,102,0.3)' },
+              '50%': { transform: 'translateY(-6px)', boxShadow: '0 0 0 12px rgba(37,211,102,0), 0 8px 18px rgba(37,211,102,0.4)' },
+            },
+          },
+          transitionTimingFunction: {
+            'smooth': 'cubic-bezier(.4,0,.2,1)',
+          },
+          boxShadow: {
+            'card-hover': '0 24px 64px rgba(0,0,0,0.18)',
+            'red-glow': '0 12px 32px rgba(212,43,43,0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    #navbar.scrolled, .subpage-nav {
+      background: rgba(26, 26, 26, 0.98) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+    }
+    [data-aos] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    [data-aos].aos-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D42B2B;
+      border-radius: 3px;
+    }
+    .nav-link-active {
+      color: #D42B2B !important;
+    }
+    #hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    #hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    #hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  </style>
+</head>
+
+<body class="bg-zapple-warm text-charcoal overflow-x-hidden">
+
+  <!-- ============================= NAVBAR ============================= -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-[1001] transition-all duration-300 subpage-nav">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 no-underline">
+        <span class="font-playfair text-3xl font-black text-zapple-red leading-none">7.</span>
+        <div class="flex flex-col leading-tight">
+          <span class="font-playfair text-lg font-bold text-white tracking-wide">Zapple</span>
+          <span class="text-[0.6rem] font-medium text-white/60 tracking-[3px] uppercase">Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden md:flex items-center gap-1 list-none">
+        <li><a href="index.html"
+            class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">Home</a>
+        </li>
+        <li><a href="about.html"
+            class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">About</a>
+        </li>
+        <li><a href="services.html"
+            class="text-zapple-red text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 transition-all duration-300 nav-link-active">Services</a>
+        </li>
+        <li><a href="gallery.html"
+            class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">Gallery</a>
+        </li>
+        <li><a href="blogs.html"
+            class="text-white/80 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-300">Blogs</a>
+        </li>
+        <li>
+          <a href="contact.html" id="nav-book-btn"
+            class="ml-2 bg-zapple-red text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-zapple-dark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-red-glow">
+            Book Now
+          </a>
+        </li>
+      </ul>
+
+      <!-- Hamburger -->
+      <button id="hamburger"
+        class="md:hidden flex flex-col gap-1.5 bg-transparent border-none cursor-pointer p-1 z-[1002]"
+        aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu"
+    class="fixed inset-0 bg-[#1A1A1A] flex-col z-[1000] opacity-0 invisible pointer-events-none transition-all duration-300 md:hidden flex overflow-y-auto">
+    <div class="flex flex-col w-full border-t border-white/10 mt-[85px]">
+      <a href="index.html" class="block w-full text-center py-[20px] border-b border-white/10 text-white/80 active:bg-white/5 text-[15px] tracking-[2px] font-normal transition-colors uppercase">Home</a>
+      <a href="about.html" class="block w-full text-center py-[20px] border-b border-white/10 text-white/80 active:bg-white/5 text-[15px] tracking-[2px] font-normal transition-colors uppercase">About</a>
+      <a href="services.html" class="block w-full text-center py-[20px] border-b border-white/10 text-zapple-red active:bg-white/5 text-[15px] tracking-[2px] font-normal transition-colors uppercase">Services</a>
+      <a href="gallery.html" class="block w-full text-center py-[20px] border-b border-white/10 text-white/80 active:bg-white/5 text-[15px] tracking-[2px] font-normal transition-colors uppercase">Gallery</a>
+      <a href="blogs.html" class="block w-full text-center py-[20px] border-b border-white/10 text-white/80 active:bg-white/5 text-[15px] tracking-[2px] font-normal transition-colors uppercase">Blogs</a>
+    </div>
+    <div class="flex flex-col items-center gap-6 pt-10 pb-10 px-8 mt-auto w-full">
+      <a href="contact.html" class="w-full max-w-[280px] bg-white text-charcoal text-center font-bold py-4 rounded-full text-[13px] tracking-[1px] uppercase hover:bg-gray-200 transition-all">Book Now</a>
+    </div>
+  </div>
+
+  <!-- ============================= SUBPAGE HEADER ============================= -->
+  <section class="relative pt-32 pb-16 bg-[#1A1A1A] overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zapple-red via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <p class="text-zapple-red text-xs font-bold tracking-[3px] uppercase mb-2">Our Offerings</p>
+      <h1 class="font-playfair text-4xl sm:text-5xl font-bold text-white mb-2">Photography Services</h1>
+      <p class="text-white/60 text-xs max-w-md mx-auto uppercase tracking-[2px]">Premium Packages Tailored For Your Family</p>
+    </div>
+  </section>
+
+  <!-- ============================= SERVICES ============================= -->
+  <section class="py-16 md:py-24 bg-zapple-warm overflow-hidden" id="services">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <p class="flex items-center justify-center gap-3 text-zapple-red text-[0.7rem] font-bold tracking-[3px] uppercase mb-3">
+          <span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>What We Offer<span class="w-6 h-0.5 bg-zapple-red/50 rounded"></span>
+        </p>
+        <h2 class="font-playfair text-[clamp(2rem,4vw,3rem)] font-bold text-charcoal leading-tight mb-4">
+          Our Signature <em class="text-zapple-red italic">Shoot Packages</em>
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto text-base leading-[1.7]">
+          Choose your session, pick your branch — we'll send you the most magical theme options personally.
+        </p>
+      </div>
+
+      <!-- Carousel Container -->
+      <div class="relative px-4 sm:px-12 group/carousel" data-aos>
+
+        <!-- Viewport -->
+        <div class="overflow-hidden" id="services-viewport">
+          <!-- Track -->
+          <div id="services-track" class="flex gap-7 transition-transform duration-500 ease-smooth">
+
+            <!-- Newborn -->
+            <div id="service-newborn"
+              class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col w-full sm:w-[calc(50%-14px)] lg:w-[calc(33.333%-18.7px)] shrink-0">
+              <div class="relative h-52 overflow-hidden">
+                <img src="assets/hero_newborn.png" alt="Newborn Baby Shoot" loading="lazy"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">5–25 Days</span>
+              </div>
+              <div class="p-6 flex flex-col gap-2.5 flex-1">
+                <span class="text-2xl">🍼</span>
+                <h3 class="font-playfair text-xl font-bold text-charcoal">Newborn Baby Shoot</h3>
+                <p class="text-gray-400 text-sm leading-[1.65] flex-1">The golden window — 5 to 25 days old. We capture every curl, yawn and precious wrinkle in ultra-soft dreamy setups.</p>
+                <ul class="flex flex-col gap-1.5 mt-1">
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Posed & lifestyle shots</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Flower, nest & prop setups</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Parent inclusion shots</li>
+                </ul>
+                <a href="contact.html" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Book Session →</a>
+              </div>
+            </div>
+
+            <!-- Baby -->
+            <div id="service-baby"
+              class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col w-full sm:w-[calc(50%-14px)] lg:w-[calc(33.333%-18.7px)] shrink-0">
+              <div class="relative h-52 overflow-hidden">
+                <img src="assets/baby_shoot.png" alt="Baby Shoot 6-12 months" loading="lazy"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">6–12 Months</span>
+              </div>
+              <div class="p-6 flex flex-col gap-2.5 flex-1">
+                <span class="text-2xl">🎈</span>
+                <h3 class="font-playfair text-xl font-bold text-charcoal">Baby Shoot</h3>
+                <p class="text-gray-400 text-sm leading-[1.65] flex-1">Milestone magic — sitting, crawling, first looks. Perfect age to capture big eyes, chubby cheeks and heart-melting smiles.</p>
+                <ul class="flex flex-col gap-1.5 mt-1">
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Sitter & milestone sessions</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Cake smash available</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Themed setups</li>
+                </ul>
+                <a href="contact.html" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Book Session →</a>
+              </div>
+            </div>
+
+            <!-- Outdoor Shoot -->
+            <div id="service-outdoor"
+              class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col w-full sm:w-[calc(50%-14px)] lg:w-[calc(33.333%-18.7px)] shrink-0">
+              <div class="relative h-52 overflow-hidden">
+                <img src="assets/gallery6.png" alt="Outdoor Shoot" loading="lazy"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">Outdoor</span>
+              </div>
+              <div class="p-6 flex flex-col gap-2.5 flex-1">
+                <span class="text-2xl">🏖️</span>
+                <h3 class="font-playfair text-xl font-bold text-charcoal">Outdoor Shoot</h3>
+                <p class="text-gray-400 text-sm leading-[1.65] flex-1">Natural light, scenic locations, and candid moments. Capturing your family's joy in beautiful parks, beaches, and outdoor setups.</p>
+                <ul class="flex flex-col gap-1.5 mt-1">
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Sunset & golden hour lighting</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Park, beach & garden venues</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Candid family portraits</li>
+                </ul>
+                <a href="contact.html" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Book Session →</a>
+              </div>
+            </div>
+
+            <!-- Event Shoot -->
+            <div id="service-event"
+              class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col w-full sm:w-[calc(50%-14px)] lg:w-[calc(33.333%-18.7px)] shrink-0">
+              <div class="relative h-52 overflow-hidden">
+                <img src="assets/gallery3.png" alt="Event Shoot" loading="lazy"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">Events</span>
+              </div>
+              <div class="p-6 flex flex-col gap-2.5 flex-1">
+                <span class="text-2xl">🎉</span>
+                <h3 class="font-playfair text-xl font-bold text-charcoal">Event Shoot</h3>
+                <p class="text-gray-400 text-sm leading-[1.65] flex-1">Preserve every precious memory from baby naming ceremonies, ear piercing, milestones, and family celebrations.</p>
+                <ul class="flex flex-col gap-1.5 mt-1">
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Naming ceremonies & rituals</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Full event candid coverage</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> High-res digital albums</li>
+                </ul>
+                <a href="contact.html" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Book Session →</a>
+              </div>
+            </div>
+
+            <!-- Birthday -->
+            <div id="service-birthday"
+              class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col w-full sm:w-[calc(50%-14px)] lg:w-[calc(33.333%-18.7px)] shrink-0">
+              <div class="relative h-52 overflow-hidden">
+                <img src="assets/gallery4.png" alt="Birthday Photography" loading="lazy"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">All Ages</span>
+              </div>
+              <div class="p-6 flex flex-col gap-2.5 flex-1">
+                <span class="text-2xl">🎂</span>
+                <h3 class="font-playfair text-xl font-bold text-charcoal">Birthday Photography</h3>
+                <p class="text-gray-400 text-sm leading-[1.65] flex-1">Make their special day unforgettable! We capture the joy, the cake, and all the magical birthday moments.</p>
+                <ul class="flex flex-col gap-1.5 mt-1">
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Event coverage</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Decor & candid shots</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Family portraits</li>
+                </ul>
+                <a href="contact.html" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Book Session →</a>
+              </div>
+            </div>
+
+            <!-- Maternity -->
+            <div id="service-maternity"
+              class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover hover:-translate-y-2 hover:border-zapple-red transition-all duration-300 flex flex-col w-full sm:w-[calc(50%-14px)] lg:w-[calc(33.333%-18.7px)] shrink-0">
+              <div class="relative h-52 overflow-hidden">
+                <img src="assets/maternity_shoot.png" alt="Maternity Shoot" loading="lazy"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <span class="absolute top-3 right-3 bg-zapple-red text-white text-xs font-bold px-3 py-1 rounded-full">Maternity</span>
+              </div>
+              <div class="p-6 flex flex-col gap-2.5 flex-1">
+                <span class="text-2xl">🌸</span>
+                <h3 class="font-playfair text-xl font-bold text-charcoal">Maternity Shoot</h3>
+                <p class="text-gray-400 text-sm leading-[1.65] flex-1">Celebrate the most beautiful chapter of your life. Elegant, empowering and deeply personal maternity portraits.</p>
+                <ul class="flex flex-col gap-1.5 mt-1">
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Solo & couple sessions</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Gown wardrobe provided</li>
+                  <li class="flex items-center gap-2 text-xs text-charcoal"><span class="text-zapple-red font-bold">✓</span> Golden hour & studio</li>
+                </ul>
+                <a href="contact.html" class="mt-2 text-zapple-red text-sm font-bold tracking-wide hover:tracking-widest transition-all duration-300">Book Session →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button id="services-prev" class="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white text-zapple-red border border-gray-100 shadow-md flex items-center justify-center hover:bg-zapple-red hover:text-white hover:shadow-red-glow hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none" aria-label="Previous Slide">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button id="services-next" class="absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white text-zapple-red border border-gray-100 shadow-md flex items-center justify-center hover:bg-zapple-red hover:text-white hover:shadow-red-glow hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none" aria-label="Next Slide">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= CALL TO ACTION ============================= -->
+  <section class="py-16 bg-[#1A1A1A] text-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-zapple-red via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto px-6 relative z-10">
+      <h2 class="font-playfair text-3xl font-bold text-white mb-4">Ready to Book Your Session?</h2>
+      <p class="text-white/60 mb-8 max-w-lg mx-auto text-sm leading-relaxed">Select a date at our Arumbakkam or Keelkatalai branches, and let us help you plan the perfect custom themes for your session.</p>
+      <a href="contact.html" class="inline-block bg-zapple-red text-white font-bold px-8 py-4 rounded-full hover:bg-zapple-dark hover:shadow-red-glow hover:-translate-y-0.5 transition-all duration-300">Book Your Photoshoot Now</a>
+    </div>
+  </section>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="bg-[#111] pt-16 pb-0">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/[0.07]">
+        <div>
+          <a href="index.html" class="flex items-center gap-3 mb-4 no-underline">
+            <span class="font-playfair text-3xl font-black text-zapple-red leading-none">7.</span>
+            <div class="flex flex-col leading-tight">
+              <span class="font-playfair text-lg font-bold text-white tracking-wide">Zapple</span>
+              <span class="text-[0.6rem] font-medium text-white/50 tracking-[3px] uppercase">Studio</span>
+            </div>
+          </a>
+          <p class="text-white/35 text-sm leading-[1.7] max-w-[280px]">Chennai's most-loved photography studio capturing your family's most precious milestones with warmth and artistry.</p>
+        </div>
+        <div>
+          <h5 class="text-white/30 text-[0.7rem] font-bold tracking-[2px] uppercase mb-4">Services</h5>
+          <ul class="flex flex-col gap-2.5 list-none">
+            <li><a href="services.html" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Newborn Shoot</a></li>
+            <li><a href="services.html" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Baby Shoot</a></li>
+            <li><a href="services.html" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Outdoor Shoot</a></li>
+            <li><a href="services.html" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Event Shoot</a></li>
+            <li><a href="services.html" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Maternity Shoot</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white/30 text-[0.7rem] font-bold tracking-[2px] uppercase mb-4">Quick Links</h5>
+          <ul class="flex flex-col gap-2.5 list-none">
+            <li><a href="gallery.html" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Gallery</a></li>
+            <li><a href="about.html#reviews" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Reviews</a></li>
+            <li><a href="contact.html" class="text-white/50 text-sm hover:text-white transition-colors duration-300">Book a Shoot</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white/30 text-[0.7rem] font-bold tracking-[2px] uppercase mb-4">Contact Us</h5>
+          <ul class="flex flex-col gap-3 list-none">
+            <li class="flex gap-2 text-white/50 text-sm"><span>📞</span><a href="tel:+919962361204" class="hover:text-white transition-colors duration-300">+91 99623 61204</a></li>
+            <li class="flex gap-2 text-white/50 text-sm"><span>📧</span><a href="mailto:team@zapplestudio.com" class="hover:text-white transition-colors duration-300">team@zapplestudio.com</a></li>
+            <li class="flex gap-2 text-white/50 text-sm"><span>🕐</span>Mon–Sat: 9 AM – 7 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 py-5">
+        <p class="text-white/20 text-xs">© 2025 Zapple Studio. All rights reserved. Made with ❤️ in Chennai.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================= WHATSAPP WIDGET ============================= -->
+  <div class="fixed bottom-6 right-6 z-[999]" id="whatsapp-widget">
+    <div class="absolute bottom-20 right-0 w-[calc(100vw-3rem)] sm:w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden opacity-0 invisible translate-y-4 transition-all duration-300 z-[998]" id="whatsapp-popup">
+      <div class="bg-[#075e54] text-white p-4 flex items-center gap-3 relative">
+        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white"><span class="font-bold text-xl">Z</span></div>
+        <div class="flex flex-col">
+          <span class="font-playfair text-sm font-bold">Zapple Support</span>
+          <span class="text-xs opacity-80">Online</span>
+        </div>
+        <button class="absolute top-3 right-4 bg-transparent border-none text-white text-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity" id="chat-close-btn">&times;</button>
+      </div>
+      <div class="bg-[#e5ddd5] p-5 min-h-[120px]">
+        <div class="bg-white p-3 rounded-tr-xl rounded-b-xl text-sm text-charcoal shadow-sm max-w-[90%] leading-snug">
+          <p class="mb-2">Hi there! 👋</p>
+          <p>How can we help you with your photography needs today?</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 border-t border-gray-100">
+        <a href="https://wa.me/919962361204" target="_blank" class="flex items-center justify-center gap-2 bg-[#25d366] text-white py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-[#1ebd54] hover:-translate-y-px transition-all">Start Chat</a>
+      </div>
+    </div>
+    <button class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer border-none animate-chat-pulse" id="whatsapp-toggle">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.018 0C5.396 0 .023 5.37 .02 11.994c0 2.116.55 4.18 1.597 6.002L0 24l6.19-1.624a11.944 11.944 0 005.823 1.513h.005c6.62 0 11.993-5.372 11.996-11.997C24.017 5.372 18.643 0 12.018 0zm6.81 17.037c-.28.784-1.62 1.507-2.247 1.6-1.968.293-4.506-1.127-6.994-3.616-2.486-2.485-3.906-5.025-3.614-6.992.09-.627.813-1.968 1.6-2.247.375-.133.722-.116 1.018.172.296.289.877 2.123 1.018 2.411.14.288.083.56-.123.774-.207.213-.418.423-.65.659-.232.235-.49.493-.207.98.536.924 1.543 2.023 2.502 2.981.958.959 2.057 1.966 2.98 2.502.488.283.746.025.98-.207.236-.232.446-.443.66-.65.213-.206.485-.262.773-.122.288.14 2.122.722 2.41 1.018.29.296.306.643.173 1.018z" fill="currentColor" /></svg>
+    </button>
+  </div>
+
+  <!-- ============================= LEAD POPUP ============================= -->
+  <div id="lead-popup" class="fixed inset-0 z-[9999] opacity-0 invisible pointer-events-none transition-all duration-500 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-charcoal/90 backdrop-blur-md" id="lead-popup-bg"></div>
+    <div class="relative bg-white w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row transform scale-95 transition-transform duration-500" id="lead-popup-content">
+      <button id="lead-popup-close" class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-black/10 backdrop-blur-sm rounded-full flex items-center justify-center text-charcoal md:text-white md:bg-black/20 hover:text-charcoal transition-all">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 1L1 13M1 1l12 12" /></svg>
+      </button>
+      <div class="hidden md:block w-1/2 relative bg-charcoal-2">
+        <img src="assets/gallery3.png" alt="Maternity Shoot" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex flex-col justify-end p-8">
+          <h3 class="text-white font-playfair text-2xl font-bold mb-2">Capture the Magic</h3>
+          <p class="text-white/80 text-sm leading-relaxed">Don't let these precious moments slip away.</p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-center bg-zapple-warm relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-40 h-40 bg-zapple-red/5 rounded-full blur-2xl pointer-events-none"></div>
+        <div id="lead-form-container" class="relative z-10">
+          <h3 class="font-playfair text-2xl md:text-3xl font-bold text-charcoal mb-2 leading-tight">Your Perfect Shoot Starts Here.</h3>
+          <p class="text-gray-500 text-sm mb-8 leading-[1.6]">Get our **Theme Catalog & Pricing Guide** sent directly to your WhatsApp!</p>
+          <form id="lead-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4">
+            <input type="hidden" name="access_key" value="905c0e06-dad8-4b5e-be7f-833c7b30ad0b">
+            <input type="hidden" name="subject" value="New Lead from Exit Popup!">
+            <div class="flex flex-col gap-1.5">
+              <input name="name" type="text" placeholder="Your Name" required class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-white focus:border-zapple-red focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 placeholder-gray-400" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <input name="phone" type="tel" placeholder="WhatsApp Number" required class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-white focus:border-zapple-red focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 placeholder-gray-400" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <select name="shootType" required class="px-4 py-3 border-2 border-gray-100 rounded-xl text-sm font-inter bg-white focus:border-zapple-red focus:outline-none focus:ring-4 focus:ring-zapple-red/8 transition-all duration-300 text-charcoal">
+                <option value="" disabled selected>Select shoot type</option>
+                <option value="newborn">🍼 Newborn Baby Shoot (5–25 days)</option>
+                <option value="baby">🎈 Baby Shoot (6–12 months)</option>
+                <option value="outdoor">🏖️ Outdoor Shoot</option>
+                <option value="event">🎉 Event Shoot (Naming, Ceremonies)</option>
+                <option value="birthday">🎂 Birthday Photography</option>
+                <option value="maternity">🌸 Maternity Shoot</option>
+                <option value="others">📷 Others</option>
+              </select>
+            </div>
+            <button type="submit" id="lead-submit-btn" class="w-full bg-zapple-red text-white font-bold py-4 rounded-xl text-[15px] hover:bg-zapple-dark hover:-translate-y-0.5 hover:shadow-red-glow transition-all duration-300 mt-2 flex items-center justify-center gap-2">
+              <span class="btn-text">Send to WhatsApp 📲</span>
+            </button>
+          </form>
+          <p class="text-[0.65rem] text-center text-gray-400 mt-5">We respect your privacy. No spam, just beautiful photos.</p>
+        </div>
+        <div id="lead-success" class="hidden relative z-10 text-center py-8">
+          <div class="text-6xl mb-4">✨</div>
+          <h3 class="font-playfair text-2xl font-bold text-charcoal mb-3">Request Sent!</h3>
+          <p class="text-gray-500 text-sm leading-[1.6]">Our team will message you on WhatsApp shortly with the catalog!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
